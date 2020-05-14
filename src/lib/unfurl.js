@@ -1,0 +1,1 @@
+const test = "https://www.ettoday.net/dalemon/post/40959";
