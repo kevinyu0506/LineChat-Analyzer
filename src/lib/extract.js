@@ -1,8 +1,9 @@
 const fs = require('fs');
 const readline = require('readline');
-const generate_dir = "../sample/generate";
-const urls_path = `${generate_dir}/urls.txt`;
-const extract_urls_path = `${generate_dir}/extract_urls.txt`;
+
+const sample_env = "../sample/generate";
+const urls_path = `${sample_env}/urls.txt`;
+const extract_urls_path = `${sample_env}/extract_urls.txt`;
 
 const readInterface = readline.createInterface({
     input: fs.createReadStream(urls_path)
@@ -15,9 +16,11 @@ readInterface.on('line', (line) => {
 });
 
 function cleanse(url) {
+    let target = 'utm'
+    let index = url.indexOf(target);
     url = url.replace('"', '');
-    if (url.indexOf('utm') > 0) {
-        url = url.slice(0, url.indexOf('utm')-1);
+    if (index > 0) {
+        url = url.slice(0,index-1);
     }
     url = url + '\n';
     return url.toString('utf8');
