@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/kevinyu0506/LineChat-Analyzer#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "open-graph-scraper": "^3.6.2"
   }
 }
